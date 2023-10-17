@@ -1,0 +1,9 @@
+* {
+    background-color: rgb(20, 20, 46);
+}
+
+.canvas {
+    background-color: rgb(28, 28, 28);
+    width: 800px;
+    height: 800px;
+}
