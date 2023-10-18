@@ -13,7 +13,11 @@ let intervalTime =0
 let interval =0
 
 document.addEventListener("DOMContentLoaded",function(){ 
-document.addEventListener("onkeypress", control) 
+
+//here goes a eventlistener that detects a keypress... on keypress run a function that will 'dicide' which key was pressed and change the direction value based on that
+//this is to avoid multiple key presses that will cause the direction value to not be one that wrks with the sname movement function... causing the snake to teleport - not folowing the possible paths
+
+
 createBoard() 
 startGame() 
 playAgain.addEventListener("click", replay); 
@@ -104,19 +108,6 @@ appleIndex =Math.floor(Math.random() * squares.length)
 squares[appleIndex].classList.add("apple") 
 } 
 
-
-function control(event){ 
-if (e.keycode===39){
-direction = 1 // right 
-}else if (e.keycode===38){ 
-direction = -width //if we press the up arrow, the snake will go ten divs up
-}else if (e.keycode===37){ 
-direction = -1 // left, the snake will go left one div
-}else if (event.key===40){
-direction = +width // down the snake head will instantly appear 10 divs below from the current div 
-} 
-
-} 
 
  function replay() { 
  grid.innerHTML="" 
