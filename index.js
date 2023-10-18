@@ -16,14 +16,8 @@ let speed = 0.8;
 let intervalTime = 0;
 let interval = 0;
 
-document.addEventListener("DOMContentLoaded", function () {
-    document.addEventListener("keyup", control);
-    createBoard();
-    startGame();
-    playAgain.addEventListener("click", replay);
-});
 
-function createGrid() {
+function createBoard() {
     for (i = 0; i < 100; i++) {
         let div = document.createElement("div")
         grid.appendChild(div)
@@ -34,3 +28,9 @@ function startGame() {
     let squares = document.querySelectorAll(".grid div")
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("keyup", control);
+    createBoard();
+    startGame();
+    playAgain.addEventListener("click", replay);
+}); 
