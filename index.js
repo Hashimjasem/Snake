@@ -49,10 +49,10 @@ function startGame() {
 
     let squares = document.querySelectorAll(".grid div")
 
-    randomApple(squares) //random apple
-    direction = 1
+    // randomApple(squares) //random apple
+    // direction = 1
 
-    scoreDisplay.innerHTML = score
+    // scoreDisplay.innerHTML = score
 
     intervalTime = 1000
 
@@ -67,13 +67,13 @@ function startGame() {
 
 function moveOutcome() {
     let squares = document.querySelectorAll(".grid div")
-    if (checkForHits(squares)) {
-        alert("you hit something")
-        popup.style.display = "flex"
-        return clearInterval(interval)
-    } else {
+    // if (checkForHits(squares)) {
+    //     alert("you hit something")
+    //     popup.style.display = "flex"
+    //     return clearInterval(interval)
+    // } else {
         moveSnake(squares)
-    }
+    // }
 }
 
 function moveSnake(squares) {
@@ -99,30 +99,27 @@ function checkForHits(squares) {
     }
 }
 
-function eatApple(squares, tail) {
-    if (squares[currentSnake[0]].classList.contains("apple")) {
-        squares[currentSnake[0]].classList.remove("apple")
-        squares[tail].classList.add("snake")
-        currentSnake.push(tail)
-        randomApple(squares)
-        score++
-        scoreDisplay.textContent = score
-        clearInterval(interval)
-        intervalTime = intervalTime * speed
-        interval = setInterval(moveOutcome, intervalTime)
-    }
-}
+// function eatApple(squares, tail) {
+//     if (squares[currentSnake[0]].classList.contains("apple")) {
+//         squares[currentSnake[0]].classList.remove("apple")
+//         squares[tail].classList.add("snake")
+//         currentSnake.push(tail)
+//         randomApple(squares)
+//         score++
+//         scoreDisplay.textContent = score
+//         clearInterval(interval)
+//         intervalTime = intervalTime * speed
+//         interval = setInterval(moveOutcome, intervalTime)
+//     }
+// }
 
-function randomApple(squares) {
-    do {
-        appleIndex = Math.floor(Math.random() * squares.length)
-    } while (squares[appleIndex].classList.contains("snake"))
-    squares[appleIndex].classList.add("apple")
-}
+// function randomApple(squares) {
+//     do {
+//         appleIndex = Math.floor(Math.random() * squares.length)
+//     } while (squares[appleIndex].classList.contains("snake"))
+//     squares[appleIndex].classList.add("apple")
+// }
 
-function checkkey() {
-    console.log('hi')
-}
 
 function replay() {
     grid.innerHTML = ""
