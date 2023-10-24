@@ -22,10 +22,12 @@
 
 let grid = document.querySelector(".grid")
 let popup = document.querySelector(".popup");
+let squares = document.querySelectorAll(".grid div")
+let currentSnake = [2, 1, 0]
 
 createBoard = () => {
     popup.style.display = "none";
-    for(let i = 0; i < 100; i++) {
+    for (let i = 0; i < 100; i++) {
         let div = document.createElement("div")
         grid.appendChild(div)
     }
@@ -37,5 +39,14 @@ drawSnake = () => {
     currentSnake.forEach(index => squares[index].classList.add("snake"))
 }
 
+moveSnake = () => {
+    let squares = document.querySelectorAll(".grid div")
+    let tail = currentSnake.pop()
+    //remove tail
+    squares[tail].classList.remove("snake")
+    //add head
+}
+
 createBoard()
 drawSnake()
+moveSnake()
