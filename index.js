@@ -24,6 +24,9 @@ let grid = document.querySelector(".grid")
 let popup = document.querySelector(".popup");
 let squares = document.querySelectorAll(".grid div")
 let currentSnake = [2, 1, 0]
+let direction = 1
+let intervalTime = 1000
+let interval = 1000
 
 createBoard = () => {
     popup.style.display = "none";
@@ -45,8 +48,10 @@ moveSnake = () => {
     //remove tail
     squares[tail].classList.remove("snake")
     //add head
+    currentSnake.unshift(currentSnake[0] + direction)
+    squares[currentSnake[0]].classList.add("snake")
 }
 
 createBoard()
 drawSnake()
-moveSnake()
+interval = setInterval(moveSnake, intervalTime)
