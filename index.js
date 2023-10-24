@@ -27,6 +27,7 @@ let currentSnake = [2, 1, 0]
 let direction = 1
 let intervalTime = 1000
 let interval = 1000
+let width = 10;
 
 createBoard = () => {
     popup.style.display = "none";
@@ -35,6 +36,21 @@ createBoard = () => {
         grid.appendChild(div)
     }
 }
+
+changeDirection = () => {
+    document.addEventListener("keypress", (e) => {
+        if (e.key === 'd') {
+            direction = 1; // right
+        } else if (e.key = 'w') {
+            direction = -width; //if we press the up arrow, the snake will go ten divs up
+        } else if (e.key = 'a') {
+            direction = -1; // left, the snake will go left one div
+        } else if (e.key = 's') {
+            direction = +width; // down the snake head will instantly appear 10 divs below from the current div
+        }
+
+    }, false)
+} 
 
 drawSnake = () => {
     let squares = document.querySelectorAll(".grid div")
@@ -54,4 +70,5 @@ moveSnake = () => {
 
 createBoard()
 drawSnake()
+changeDirection()
 interval = setInterval(moveSnake, intervalTime)
