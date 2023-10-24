@@ -26,8 +26,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
             direction = +width; // down the snake head will instantly appear 10 divs below from the current div
         }
 
-    }, false
-    )
+    }, false)
 
 
     createBoard()
